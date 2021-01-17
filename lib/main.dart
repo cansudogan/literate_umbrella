@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
 //void main() {
 //  runApp(LiterateUmbrella());
@@ -9,19 +10,18 @@ void main() => runApp(LiterateUmbrella());
 class LiterateUmbrella extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return LiterateUmbrellaState();
+    return _LiterateUmbrellaState();
   }
 }
 
-class LiterateUmbrellaState extends State<LiterateUmbrella> {
-  var questionIndex = 0;
+class _LiterateUmbrellaState extends State<LiterateUmbrella> {
+  var _questionIndex = 0;
 
-  void answerQuestions() {
+  void _answerQuestions() {
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override
@@ -39,12 +39,12 @@ class LiterateUmbrellaState extends State<LiterateUmbrella> {
           children: [
             // Text('The question!'),
             //Text(questions.elementAt(0)),
-            Text(
-              questions[questionIndex],
+            Question(
+              questions[_questionIndex],
             ),
             RaisedButton(
               child: Text('Answer 1'),
-              onPressed: answerQuestions,
+              onPressed: _answerQuestions,
             ),
             RaisedButton(
               child: Text('Answer 2'),
