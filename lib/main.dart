@@ -6,11 +6,21 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(LiterateUmbrella());
 
-class LiterateUmbrella extends StatelessWidget {
+class LiterateUmbrella extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return LiterateUmbrellaState();
+  }
+}
+
+class LiterateUmbrellaState extends State<LiterateUmbrella> {
   var questionIndex = 0;
 
   void answerQuestions() {
-    questionIndex = questionIndex + 1;
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
     print(questionIndex);
   }
 
