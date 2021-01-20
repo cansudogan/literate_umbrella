@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './question.dart';
-import 'answer.dart';
+import 'quiz.dart';
+import 'result.dart';
 
 //void main() {
 //  runApp(LiterateUmbrella());
@@ -17,30 +17,54 @@ class LiterateUmbrella extends StatefulWidget {
 
 class _LiterateUmbrellaState extends State<LiterateUmbrella> {
   var _questionIndex = 0;
+  var _totalScore = 0;
 
-  final questions = const [
+  final _questions = const [
     {
       'questionText': 'What\'s your favorite color?',
-      'answers': ['Black', 'Red', 'Green', 'White'],
+      'answers': [
+        {'text': 'Black', 'score': 10},
+        {'text': 'Red', 'score': 5},
+        {'text': 'Green', 'score': 3},
+        {'text': 'White', 'score': 1}
+      ],
     },
     {
       'questionText': 'What\'s your favorite animal?',
-      'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      'answers': [
+        {'text': 'Rabbit', 'score': 3},
+        {'text': 'Snake', 'score': 11},
+        {'text': 'Elephant', 'score': 5},
+        {'text': 'Lion', 'score': 9}
+      ],
     },
     {
       'questionText': 'Who\'s your favorite instructor?',
-      'answers': ['Cansu', 'Cansu', 'Cansu'],
+      'answers': [
+        {'text': 'Cansu', 'score': 1},
+        {'text': 'Cansu', 'score': 1},
+        {'text': 'Cansu', 'score': 1}
+      ],
     }
   ];
 
-  void _answerQuestion() {
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
+  }
+
+  void _answerQuestion(int score) {
     // var aBool = true;
     // aBool = false;
-    if (_questionIndex < questions.length) {
+    if (_questionIndex < _questions.length) {
       print('We have more questions!');
     } else {
       print('No more questions!');
     }
+    _totalScore += score;
+
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
@@ -55,21 +79,13 @@ class _LiterateUmbrellaState extends State<LiterateUmbrella> {
           backgroundColor: Colors.pink[200],
           title: Text('Literate Umbrella'),
         ),
-        body: _questionIndex < questions.length
-            ? Column(
-                children: [
-                  // Text('The question!'),
-                  //Text(questions.elementAt(0)),
-                  Question(
-                    questions[_questionIndex]['questionText'],
-                  ),
-                  ...(questions[_questionIndex]['answers'] as List<String>)
-                      .map((answer) {
-                    return Answer(_answerQuestion, answer);
-                  }).toList()
-                ],
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions,
               )
-            : Center(child: Text('You did it!')),
+            : Result(_totalScore, _resetQuiz),
       ),
     );
   }
