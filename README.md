@@ -14,3 +14,7 @@ A few resources to get you started if this is your first Flutter project:
 ![Alt text](image/ResultExample.png?raw=true "Title")
 
 
+![alt tag](image/FirstQuestion.png)
+![alt tag](image/SecondQuestion.png)
+![alt tag](image/ThirdQuestion.png)
+![alt tag](image/ResultExample.png)
