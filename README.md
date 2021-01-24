@@ -15,9 +15,7 @@ This site hosts Flutter's API documentation. Other documentation can be found at
 * Contributing to Flutter
 
 # You can find the screenshots from the application below:
-![Alt text](image/FirstQuestion.png?raw=true) 
-![Alt text](image/SecondQuestion.png?raw=true =100px)
-![Alt text](image/ThirdQuestion.png?raw=true =100px)
-![Alt text](image/ResultExample.png?raw=true =100px)
-
-<img src="image/FirstQuestion.png" width="100">
+<img src="image/FirstQuestion.png" width="300">
+<img src="image/SecondQuestion.png" width="300">
+<img src="image/ThirdQuestion.png" width="300">
+<img src="image/ResultExample.png" width="300">
