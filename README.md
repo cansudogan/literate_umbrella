@@ -14,7 +14,7 @@ This site hosts Flutter's API documentation. Other documentation can be found at
 * Codelabs
 * Contributing to Flutter
 
-# You can find the screenshots from the application below:
+# Screenshots from the application below:
 <table width="100%">
 	<tr>
 	  <th width="25%"><img src="image/FirstQuestion.png"></th>
